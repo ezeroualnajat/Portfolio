@@ -1,0 +1,343 @@
+/* [ START ] Main Rules */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	--dark: #00171f;
+	--primary: #d528a6;
+}
+body {
+	background-color: var(--dark);
+	/* font-family: 'JetBrains Mono', monospace; */
+	font-family: 'Inter', sans-seri;
+	color: white;
+	min-height: 100dvh;
+}
+.container {
+	width: 100%;
+	padding: 0 24px;
+}
+@media screen and (min-width: 576px) {
+	.container {
+		width: 540px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.container {
+		width: 720px;
+	}
+}
+@media screen and (min-width: 992px) {
+	.container {
+		width: 960px;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.container {
+		width: 1140px;
+	}
+}
+@media screen and (min-width: 1400px) {
+	.container {
+		width: 1320px;
+	}
+}
+/* [ END ] Main Rules */
+
+/* [ START ] Portfolio */
+.backdrop {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	background-color: rgb(174 172 172 / 20%);
+	z-index: 999;
+}
+header {
+	padding-top: 30px;
+}
+header nav.desktop {
+	display: flex;
+	justify-content: space-between;
+}
+header nav.desktop .logo {
+	font-size: 20px;
+	font-weight: 600;
+}
+header nav.desktop .logo span {
+	font-size: 52px;
+	color: var(--primary);
+}
+header nav.mobile {
+	height: 100px;
+	background-color: var(--dark);
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	transform: translateY(100%);
+	transition: transform 0.5s ease-in-out;
+	z-index: 1000;
+	box-shadow: 1px 1px 30px 19px var(--dark);
+}
+header nav.mobile.expanded {
+	transform: unset;
+}
+header nav.mobile .toggler {
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	position: absolute;
+	top: 5px;
+	left: 50%;
+	width: 68px;
+	height: 68px;
+	transform: translate(-50%, -50%);
+	background-color: var(--dark);
+	padding: 0 5px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-radius: 50%;
+	z-index: -1;
+}
+header nav.mobile .toggler ion-icon {
+	width: 25px;
+	transition: transform 0.5s ease-in-out;
+	position: relative;
+	top: 4px;
+	fill: white;
+}
+header nav.mobile.expanded .toggler ion-icon {
+	transform: rotate(180deg);
+}
+header nav.mobile ul {
+	justify-content: space-evenly;
+	list-style: none;
+	display: flex;
+	color: white;
+	column-gap: 20px;
+	align-items: center;
+	height: 100%;
+}
+header nav.mobile ul li {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+header nav.mobile ul li:hover ion-icon,
+header nav.mobile ul li:hover span {
+	color: var(--primary);
+	transition: 0.4s ease-in-out;
+}
+header nav.mobile ul li ion-icon {
+	font-size: 26px;
+}
+header nav.mobile ul li span {
+	font-size: 11px;
+	font-weight: 500;
+}
+
+/* /////////////////////////////////////////////// */
+
+header section {
+}
+header section .picture {
+	margin: 40px 0;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+header section .picture .blur {
+	width: 340px;
+	height: 340px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(213, 40, 166, 1) 0%,
+		rgba(0, 0, 0, 0) 70%
+	);
+	margin: auto;
+	position: absolute;
+	z-index: -1;
+}
+header section .picture .profile {
+	width: 210px;
+	height: 260px;
+	overflow: hidden;
+}
+header section .picture .profile img {
+	max-width: 100%;
+}
+
+/* /////////////////////////////////////////// */
+
+header section .presenting {
+}
+header section .presenting h1 {
+	font-size: 28px;
+	margin-bottom: 6px;
+}
+header section .presenting h1 span {
+	font-size: 20px;
+	font-weight: 400;
+	font-family: 'JetBrains Mono', monospace;
+}
+/* ///////////////////////// */
+header section .presenting ul {
+	list-style: none;
+	margin-bottom: 16px;
+	height: 47px;
+	line-height: 47px;
+	overflow: hidden;
+}
+header section .presenting ul li {
+	color: var(--primary);
+	font-size: 30px;
+	font-weight: 600;
+	font-family: 'JetBrains Mono', monospace;
+	position: relative;
+	top: 0;
+	animation: slide 3s steps(2) infinite;
+}
+@keyframes slide {
+	100% {
+		top: -94px;
+	}
+}
+header section .presenting ul li span {
+	position: relative;
+}
+header section .presenting ul li span::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	border-left: 2px solid var(--primary);
+	height: 100%;
+	width: 100%;
+	animation: typing 2s steps(19) infinite;
+	background-color: var(--dark);
+}
+@keyframes typing {
+	100% {
+		margin: 0 -35px - 35px;
+		left: 100%;
+	}
+}
+/* ////////////////// */
+header section .presenting p {
+	letter-spacing: 1px;
+	opacity: 0.7;
+	line-height: 1.6;
+}
+header section .presenting .actions {
+	margin: 30px 0;
+}
+header section .presenting .actions button {
+	padding: 10px;
+	border: none;
+	width: 100%;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--white);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+header section .presenting .actions button:first-of-type {
+	background-color: white;
+	color: var(--primary);
+	margin-bottom: 16px;
+}
+header section .presenting .actions button:last-of-type {
+	border: 1px solid white;
+	background-color: transparent;
+}
+header section .presenting .actions button:first-of-type:hover {
+	background-color: var(--primary);
+	color: white;
+}
+header section .presenting .actions button:last-of-type:hover {
+	box-shadow: 1px 2px 10px 1px;
+}
+
+section {
+}
+.about h2 {
+	font-family: 'JetBrains Mono', monospace;
+	margin-bottom: 50px;
+	font-size: 22px;
+	color: var(--primary);
+	letter-spacing: -0.5px;
+	text-align: center;
+	font-weight: 300;
+}
+.skills h2 {
+	margin-bottom: 50px;
+	text-align: center;
+	letter-spacing: 1.5px;
+}
+.skills h2::before {
+	content: '';
+	height: 30px;
+	width: 30px;
+	border-radius: 4px;
+	background-color: var(--primary);
+	display: block;
+	position: absolute;
+	left: 37%;
+	z-index: -1;
+	transform: rotate(45deg);
+}
+.contact h2 {
+	margin-bottom: 50px;
+	text-align: center;
+	width: fit-content;
+	padding: 0 8px;
+	border-radius: 10px;
+	background-color: rgb(213 40 166 / 30%);
+	font-size: 18px;
+	color: var(--primary);
+	line-height: 100%;
+	box-shadow: 2px 2px 20px 2px rgb(213 40 166 / 30%);
+}
+.projects h2 {
+	margin-bottom: 50px;
+	text-align: center;
+	color: var(--primary);
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'JetBrains Mono', monospace;
+}
+
+.projects h2::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	display: block;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	left: 31%;
+	z-index: -1;
+}
+.projects h2::after {
+	content: '';
+	width: 10px;
+	height: 10px;
+	display: block;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	left: 66%;
+	z-index: -1;
+}
+/* [ END ] Portfolio */
